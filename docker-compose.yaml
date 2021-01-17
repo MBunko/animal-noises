@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  animal-frontend:
+    container_name: animal-frontend
+    build: ./service_1
+    ports:
+    - target: 5000
+      published: 5000
+      protocol: tcp
+  animal-backend:
+    container_name: animal-backend
+    build: ./service_2
+  nginx:
+    image: nginx:latest
+    ports:
+    - target: 80
+      published: 80
+      protocol: tcp
+    volumes:
+    - type: bind
+      source: ./nginx/nginx.conf
+      target: /etc/nginx/nginx.conf
