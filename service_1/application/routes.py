@@ -26,5 +26,5 @@ def index():
         animal=animal_response.text,
         noise=noise_response.text,
         all_animals=all_animals,
-        app_version=getenv("app_version")
+        app_version=getenv("APP_VERSION")
     )
