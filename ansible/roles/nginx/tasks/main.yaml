@@ -5,7 +5,7 @@
     update_cache: true
 - name: Copy nginx.conf
   copy:
-    src: /home/jenkins/.jenkins/workspace/pract-project/nginx/nginx.conf
+    src: nginx.conf
     dest: /etc/nginx/nginx.conf
 - name: Start NGINX Service
   service:
