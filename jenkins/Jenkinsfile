@@ -4,17 +4,26 @@ pipeline{
         DATABASE_URI = credentials("DATABASE_URI")
         app_version = 'v1'
         rollback = 'false'
+        replicas = 10
     }
     stages{
         stage("Testing"){
             steps{
-                sh "bash jenkins/test.sh"
+                script{
+                    if (env.rollback == 'false') {
+                        sh "bash jenkins/test.sh"
+                    }
+                }
             }
         }
         stage("Build & Push"){
             steps{
-                sh "docker-compose build --parallel && docker-compose push"
-                sh "docker system prune -af"
+                script{
+                    if (env.rollback == 'false') {
+                        sh "docker-compose build --parallel && docker-compose push"
+                        sh "docker system prune -af"
+                    }
+                }
             }
         }
         stage("Config Management (ansible)"){

@@ -10,7 +10,11 @@ services:
       protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
+    deploy:
+      replicas: ${replicas}
   animal-backend:
     container_name: animal-noises_animal-backend
     image: htrvolker/animal-backend:${app_version}
     build: ./service_2
+    deploy:
+      replicas: ${replicas}
