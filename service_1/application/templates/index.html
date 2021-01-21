@@ -5,3 +5,12 @@
 <p>
     {{ animal }} goes {{ noise }}
 </p>
+
+<h2>Animals from the past!</h2>
+
+<p>
+    {% for animal in all_animals %}
+    {{ animal.animal_type }} went {{ animal.animal_noise }}
+    <br><br>
+    {% endfor %}
+</p>
