@@ -42,6 +42,8 @@ pipeline{
         }
     }
     post{
-        junit "**/junit.xml"
+        always{
+            junit "**/junit.xml"
+        }
     }
 }
