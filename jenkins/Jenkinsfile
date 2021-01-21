@@ -3,7 +3,7 @@ pipeline{
     environment{
         DATABASE_URI = credentials("DATABASE_URI")
         app_version = 'v1'
-        rollback = 'true'
+        rollback = 'false'
         replicas = 10
     }
     stages{

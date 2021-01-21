@@ -10,6 +10,7 @@ services:
       protocol: tcp
     environment:
       DATABASE_URI: ${DATABASE_URI}
+      app_version: ${app_version}
     deploy:
       replicas: ${replicas}
   animal-backend:
