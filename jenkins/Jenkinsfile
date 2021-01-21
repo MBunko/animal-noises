@@ -40,8 +40,8 @@ pipeline{
                 sh "echo 'skip'"
             }
         }
-        post{
-            junit "**/junit.xml"
-        }
+    }
+    post{
+        junit "**/junit.xml"
     }
 }
