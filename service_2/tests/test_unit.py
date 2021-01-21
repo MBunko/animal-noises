@@ -18,7 +18,7 @@ class TestResponse(TestBase):
 
         for _ in range(10):
             response = self.client.get(url_for('get_animal'))
-            self.assertIn(response.data, [b"pig", b"cow", b"horse"])
+            self.assertIn(response.data, [b"pig", b"cow", b"horse", b"chicken"])
     
     def test_get_noise(self):
         response = self.client.post(url_for('get_noise'), json={"animal" : "pig"})
