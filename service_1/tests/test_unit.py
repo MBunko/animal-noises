@@ -8,7 +8,7 @@ from application.routes import Animals
 
 class TestBase(TestCase):
     def create_app(self):
-        app.config.update(SQLALCHEMY_DATABASE_URI = "sqlite:///data.db")
+        app.config.update(SQLALCHEMY_DATABASE_URI = "sqlite:///")
         return app
     
     def setUp(self):
