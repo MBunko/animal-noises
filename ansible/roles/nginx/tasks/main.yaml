@@ -4,7 +4,7 @@
     state: latest
     update_cache: true
 - name: Copy nginx.conf
-  copy:
+  template:
     src: nginx.conf
     dest: /etc/nginx/nginx.conf
 - name: Start NGINX Service
