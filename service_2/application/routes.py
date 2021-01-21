@@ -10,5 +10,6 @@ def get_animal():
 @app.route('/noise', methods=["POST"])
 def get_noise():
     noises = {"cow":"moo", "pig":"oink", "horse":"neigh"}
-    animal = request.get_json()
+    animal = request.json
+    print(animal)
     return Response(noises[animal["animal"]], mimetype='text/plain')

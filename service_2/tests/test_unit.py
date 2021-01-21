@@ -21,7 +21,5 @@ class TestResponse(TestBase):
             self.assertIn(response.data, [b"pig", b"cow", b"horse"])
     
     def test_get_noise(self):
-        with patch("flask.request.get_json") as json:
-            json.return_value = {"animal":"pig"}
-            response = self.client.post(url_for('get_noise'))
-            self.assertEqual(b"oink", response.data)
+        response = self.client.post(url_for('get_noise'), json={"animal" : "pig"})
+        self.assertEqual(b"oink", response.data)

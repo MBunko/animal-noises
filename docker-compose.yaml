@@ -2,7 +2,7 @@ version: '3.8'
 services:
   animal-frontend:
     container_name: animal-noises_animal-frontend
-    image: htrvolker/animal-frontend
+    image: htrvolker/animal-frontend:${app_version}
     build: ./service_1
     ports:
     - target: 5000
@@ -12,5 +12,5 @@ services:
       DATABASE_URI: ${DATABASE_URI}
   animal-backend:
     container_name: animal-noises_animal-backend
-    image: htrvolker/animal-backend
+    image: htrvolker/animal-backend:${app_version}
     build: ./service_2
